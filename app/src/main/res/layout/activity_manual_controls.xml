@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kuri.speechbluetoothandroidstudio.ManualControlsActivity"
+    android:background="#1d4851">
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="Controller"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@android:color/background_dark"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+
+    <Button
+        android:id="@+id/disconnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:text="DISCONNECT BLUETOOTH" />
+
+    <Button
+        android:id="@+id/sig_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Signal 3"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/sig_2"
+        android:layout_alignStart="@+id/sig_2" />
+
+    <Button
+        android:id="@+id/sig_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Signal 4"
+        android:layout_below="@+id/sig_3"
+        android:layout_alignStart="@+id/sig_3"
+        android:layout_marginTop="30dp" />
+
+    <Button
+        android:id="@+id/sig_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Signal 5"
+        android:layout_above="@+id/sig_6"
+        android:layout_toEndOf="@+id/mic_button" />
+
+    <Button
+        android:id="@+id/sig_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Signal 6"
+        android:layout_marginTop="22dp"
+        android:layout_below="@+id/sig_1"
+        android:layout_alignStart="@+id/sig_5" />
+
+    <Button
+        android:id="@+id/sig_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Signal 1"
+        android:layout_marginStart="64dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="14dp" />
+
+    <Button
+        android:id="@+id/sig_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Signal 2"
+        android:layout_alignBaseline="@+id/sig_6"
+        android:layout_alignBottom="@+id/sig_6"
+        android:layout_alignStart="@+id/sig_1" />
+
+    <Button
+        android:id="@+id/sig_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SIGNAL 7"
+        android:layout_alignBaseline="@+id/sig_3"
+        android:layout_alignBottom="@+id/sig_3"
+        android:layout_alignStart="@+id/sig_6" />
+
+    <Button
+        android:id="@+id/sig_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/sig_4"
+        android:layout_alignBottom="@+id/sig_4"
+        android:layout_alignStart="@+id/sig_7"
+        android:text="Signal 8" />
+
+    <ImageButton
+        android:id="@+id/mic_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        app:srcCompat="@drawable/voice_select_option"
+        android:layout_above="@+id/disconnect"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/instruction_text_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/mic_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="monospace"
+        android:text="CLICK THE MIC TO CONTROL USING VOICE"
+        android:textAllCaps="true"
+        android:textStyle="bold" />
+
+</RelativeLayout>
