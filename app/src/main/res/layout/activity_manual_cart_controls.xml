@@ -38,8 +38,8 @@
         android:layout_height="wrap_content"
         android:text="Signal 3"
         android:layout_marginTop="24dp"
-        android:layout_below="@+id/sig_2_arm"
-        android:layout_alignStart="@+id/sig_2_arm" />
+        android:layout_below="@+id/sig_2_cart"
+        android:layout_alignStart="@+id/sig_2_cart" />
 
     <Button
         android:id="@+id/sig_4_cart"
