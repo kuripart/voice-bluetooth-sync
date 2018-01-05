@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kuri.speechbluetoothandroidstudio">
 
-
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -21,8 +20,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ManualControlsActivity" />
-        <activity android:name=".VoiceControlsActivity"></activity>
+        <activity android:name=".ManualArmControlsActivity" />
+        <activity android:name=".VoiceArmControlsActivity" />
+        <activity android:name=".ManualCartControlsActivity" />
+        <activity android:name=".VoiceCartControlsActivity" />
+        <activity android:name=".ArmConnectivityActivity" />
+        <activity android:name=".CartConnectivityActivity"></activity>
     </application>
 
 </manifest>

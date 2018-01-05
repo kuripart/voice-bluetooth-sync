@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.kuri.speechbluetoothandroidstudio.ManualControlsActivity"
+    tools:context="com.kuri.speechbluetoothandroidstudio.ManualCartControlsActivity"
     android:background="#1d4851">
 
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/text_cart_controller"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="monospace"
-        android:text="Controller"
+        android:text="Cart Controller"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="@android:color/background_dark"
@@ -24,7 +24,7 @@
 
 
     <Button
-        android:id="@+id/disconnect"
+        android:id="@+id/disconnect_cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -33,91 +33,91 @@
         android:text="DISCONNECT BLUETOOTH" />
 
     <Button
-        android:id="@+id/sig_3"
+        android:id="@+id/sig_3_cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Signal 3"
         android:layout_marginTop="24dp"
-        android:layout_below="@+id/sig_2"
-        android:layout_alignStart="@+id/sig_2" />
+        android:layout_below="@+id/sig_2_arm"
+        android:layout_alignStart="@+id/sig_2_arm" />
 
     <Button
-        android:id="@+id/sig_4"
+        android:id="@+id/sig_4_cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Signal 4"
-        android:layout_below="@+id/sig_3"
-        android:layout_alignStart="@+id/sig_3"
+        android:layout_below="@+id/sig_3_cart"
+        android:layout_alignStart="@+id/sig_3_cart"
         android:layout_marginTop="30dp" />
 
     <Button
-        android:id="@+id/sig_5"
+        android:id="@+id/sig_5_cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Signal 5"
-        android:layout_above="@+id/sig_6"
-        android:layout_toEndOf="@+id/mic_button" />
+        android:layout_above="@+id/sig_6_cart"
+        android:layout_toEndOf="@+id/mic_button_cart" />
 
     <Button
-        android:id="@+id/sig_6"
+        android:id="@+id/sig_6_cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Signal 6"
         android:layout_marginTop="22dp"
-        android:layout_below="@+id/sig_1"
-        android:layout_alignStart="@+id/sig_5" />
+        android:layout_below="@+id/sig_1_cart"
+        android:layout_alignStart="@+id/sig_5_cart" />
 
     <Button
-        android:id="@+id/sig_1"
+        android:id="@+id/sig_1_cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Signal 1"
         android:layout_marginStart="64dp"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/text_cart_controller"
         android:layout_alignParentStart="true"
         android:layout_marginTop="14dp" />
 
     <Button
-        android:id="@+id/sig_2"
+        android:id="@+id/sig_2_cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Signal 2"
-        android:layout_alignBaseline="@+id/sig_6"
-        android:layout_alignBottom="@+id/sig_6"
-        android:layout_alignStart="@+id/sig_1" />
+        android:layout_alignBaseline="@+id/sig_6_cart"
+        android:layout_alignBottom="@+id/sig_6_cart"
+        android:layout_alignStart="@+id/sig_1_cart" />
 
     <Button
-        android:id="@+id/sig_7"
+        android:id="@+id/sig_7_cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SIGNAL 7"
-        android:layout_alignBaseline="@+id/sig_3"
-        android:layout_alignBottom="@+id/sig_3"
-        android:layout_alignStart="@+id/sig_6" />
+        android:layout_alignBaseline="@+id/sig_3_cart"
+        android:layout_alignBottom="@+id/sig_3_cart"
+        android:layout_alignStart="@+id/sig_6_cart" />
 
     <Button
-        android:id="@+id/sig_8"
+        android:id="@+id/sig_8_cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/sig_4"
-        android:layout_alignBottom="@+id/sig_4"
-        android:layout_alignStart="@+id/sig_7"
+        android:layout_alignBaseline="@+id/sig_4_cart"
+        android:layout_alignBottom="@+id/sig_4_cart"
+        android:layout_alignStart="@+id/sig_7_cart"
         android:text="Signal 8" />
 
     <ImageButton
-        android:id="@+id/mic_button"
+        android:id="@+id/mic_button_cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
         app:srcCompat="@drawable/voice_select_option"
-        android:layout_above="@+id/disconnect"
+        android:layout_above="@+id/disconnect_cart"
         android:layout_centerHorizontal="true" />
 
     <TextView
-        android:id="@+id/instruction_text_1"
+        android:id="@+id/instruction_text_1_cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/mic_button"
+        android:layout_above="@+id/mic_button_cart"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
         android:fontFamily="monospace"

@@ -4,50 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.kuri.speechbluetoothandroidstudio.MainActivity"
-    android:background="#3c3f51">
+    android:background="?attr/colorButtonNormal"
+    tools:context="com.kuri.speechbluetoothandroidstudio.MainActivity">
 
-    <TextView
-        android:id="@+id/paired_devices_text"
+
+    <ImageButton
+        android:id="@+id/control_arm_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_marginStart="16dp"
+        app:srcCompat="@drawable/control_arm"
+        android:layout_above="@+id/control_cart_button"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:text="Paired Devices"
-        android:textColor="@android:color/black"
-        android:textIsSelectable="false" />
+        android:layout_marginBottom="12dp" />
 
-    <Button
+    <ImageButton
+        android:id="@+id/control_cart_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Paired Devices"
-        android:id="@+id/button"
+        app:srcCompat="@drawable/control_cart"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:background="#e75238" />
-
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_below="@+id/paired_devices_text"
-        android:layout_alignRight="@+id/imageView"
-        android:layout_alignEnd="@+id/imageView"
-        android:layout_above="@+id/button" />
-
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="400dp"
-        android:src="@drawable/bluetooth"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="55dp"
         android:layout_alignParentEnd="true" />
 
-
+    <TextView
+        android:id="@+id/display_text_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:fontFamily="monospace"
+        android:text="CHOOSE CONTROL"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 </RelativeLayout>

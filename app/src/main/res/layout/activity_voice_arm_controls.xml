@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_orange_dark"
+    tools:context="com.kuri.speechbluetoothandroidstudio.VoiceArmControlsActivity">
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/voice_input_layout_arm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp">
+
+        <EditText
+            android:id="@+id/voice_text_arm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Voice text goes here...." />
+    </android.support.design.widget.TextInputLayout>
+
+    <ImageButton
+        android:id="@+id/mic_button_2_arm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/voice_control"
+        android:layout_marginTop="73dp"
+        android:layout_below="@+id/instruction_text_another_arm"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/instruction_text_another_arm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="81dp"
+        android:text="Click the mic icon and speak..."
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

@@ -6,25 +6,20 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.speech.RecognitionListener;
-import android.speech.RecognizerIntent;
-import android.speech.SpeechRecognizer;
-import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Locale;
 import java.util.UUID;
 
-public class VoiceControlsActivity extends AppCompatActivity {
+public class ManualCartControlsActivity extends AppCompatActivity {
 
-    TextInputLayout voiceLayerInput;
-    SpeechRecognizer mSpeechRecognizer;
-    ImageButton micButton;
+
+    // Button btnOn, btnOff, btnDis;
+    Button sig_1, sig_2, sig_3, sig_4, sig_5, sig_6, sig_7, sig_8, disconnect_button;
     String address = null;
     private ProgressDialog progress;
     BluetoothAdapter myBluetooth = null;
@@ -34,146 +29,158 @@ public class VoiceControlsActivity extends AppCompatActivity {
     static final UUID myUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"); //SPP UUID. Look for it
     Miscellaneous miscellaneousDoings = new Miscellaneous();
 
+    public static String MANUAL_EXTRA_ADDRESS = "device_address_manual";
 
-    //NOTES ON USING GOOGLE'S SPEECH RECOGNIZER:
-
-    //Create a Speech Recognizer using SpeechRecognizer.createSpeechRecognizer(this);
-    //Make an intent and pass in the necessary information regarding the language input
-    //When the button/prompt is made, invoke startListening() and pass in the intent
-    //In mSpeechRecognizer.setRecognitionListener(new RecognitionListener() -->
-    //override the onResults(), get the result in an array list and display the first match
-
-
+    ImageButton voiceControlOpenButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_voice_controls);
-
-        Intent obtainedIntent = getIntent();
-        address = obtainedIntent.getStringExtra(ManualControlsActivity.MANUAL_EXTRA_ADDRESS);
-
-        new ConnectBT().execute(); //needed to start the thread
+        setContentView(R.layout.activity_manual_cart_controls);
 
 
-        voiceLayerInput = (TextInputLayout) findViewById(R.id.voice_input_layout);
-        micButton = (ImageButton) findViewById(R.id.mic_button);
-        mSpeechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
-
-
-
-
-        /*
-
-        EXTRA_LANGUAGE_MODEL
-        Informs the recognizer which speech model to prefer when performing ACTION_RECOGNIZE_SPEECH.
-        The recognizer uses this information to fine tune the results. This extra is required.
-        Activities implementing ACTION_RECOGNIZE_SPEECH may interpret the values as they see fit
-
-
-        LANGUAGE_MODEL_FREE_FORM
-        Use a language model based on free-form speech recognition.
-        This is a value to use for EXTRA_LANGUAGE_MODEL.
-
-
-
-        EXTRA_LANGUAGE
-        Optional IETF language tag (as defined by BCP 47), for example "en-US".
-        This tag informs the recognizer to perform speech recognition in a language different
-        than the one set in the getDefault().
-
-         */
-
-
-        final Intent mSpeechRecognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        mSpeechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        mSpeechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-
-        micButton.setOnClickListener(new View.OnClickListener() {
+        voiceControlOpenButton = (ImageButton) findViewById(R.id.mic_button_cart);
+        voiceControlOpenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mSpeechRecognizer.startListening(mSpeechRecognizerIntent);
-                voiceLayerInput.getEditText().setHint("Listening...");
+                openVoiceControl();
             }
         });
 
 
-        mSpeechRecognizer.setRecognitionListener(new RecognitionListener() {
+        Intent obtainedIntent = getIntent();
+        address = obtainedIntent.getStringExtra(CartConnectivityActivity.EXTRA_ADDRESS); //receive the address of the bluetooth device
+
+        //call the button widgets
+        sig_1 = (Button)findViewById(R.id.sig_1_cart);
+        sig_2 = (Button)findViewById(R.id.sig_2_cart);
+        sig_3 = (Button)findViewById(R.id.sig_3_cart);
+        sig_4 = (Button)findViewById(R.id.sig_4_cart);
+        sig_5 = (Button)findViewById(R.id.sig_5_cart);
+        sig_6 = (Button)findViewById(R.id.sig_6_cart);
+        sig_7 = (Button)findViewById(R.id.sig_7_cart);
+        sig_8 = (Button)findViewById(R.id.sig_8_cart);
+        disconnect_button = (Button)findViewById(R.id.disconnect_cart);
+
+        new ConnectBT().execute(); //Call the class to connect
+
+        //commands to be sent to bluetooth
+        //set listeners for every button and execute the respective commands
+        sig_1.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onReadyForSpeech(Bundle bundle) {
-
-            }
-
-            @Override
-            public void onBeginningOfSpeech() {
-
-            }
-
-            @Override
-            public void onRmsChanged(float v) {
-
-            }
-
-            @Override
-            public void onBufferReceived(byte[] bytes) {
-
-            }
-
-            @Override
-            public void onEndOfSpeech() {
-
-            }
-
-            @Override
-            public void onError(int i) {
-
-            }
-
-            @Override
-            public void onResults(Bundle bundle) {
-
-
-                //get all matches
-                ArrayList<String> matches = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
-
-                //display first match
-                if (matches != null)
-                    voiceLayerInput.getEditText().setText(matches.get(0));
-                    executeCommand(voiceLayerInput.getEditText().getText().toString());
-
-            }
-
-            @Override
-            public void onPartialResults(Bundle bundle) {
-
-            }
-
-
-            @Override
-            public void onEvent(int i, Bundle bundle) {
-
+            public void onClick(View v)
+            {
+                turnOne();
             }
         });
 
+        sig_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                turnTwo();
+            }
+        });
+
+        sig_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                turnTwo();
+            }
+        });
+
+        sig_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                turnThree();
+            }
+        });
+
+        sig_4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                turnFour();
+            }
+        });
+
+        sig_5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                turnFive();
+            }
+        });
+
+        sig_6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                turnSix();
+            }
+        });
+
+
+        sig_7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                turnSeven();
+            }
+        });
+
+
+        sig_8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                turnEight();
+            }
+        });
+
+        disconnect_button.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Disconnect(); //close connection
+            }
+        });
+    }
+
+
+    private void Disconnect() {
+        if (bluetoothSocket!=null) //If the bluetoothSocket is busy
+        {
+            try {
+                bluetoothSocket.close(); //close connection
+
+            } catch (IOException e) {
+                miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+
+            }
+
+        }
+        finish(); //return to the first layout
 
     }
 
 
-    private void executeCommand(String voiceCommand){
-        if(voiceCommand.toLowerCase().equals("right")){
-            turnOne();
+    private void disconnectAndGoToVoice() {
+        if (bluetoothSocket!=null) //If the bluetoothSocket is busy
+        {
+            try {
+                bluetoothSocket.close(); //close connection
 
-        } else if(voiceCommand.toLowerCase().equals("left")){
-            turnTwo();
+            } catch (IOException e) {
+                miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
 
-        } else if(voiceCommand.toLowerCase().equals("front")){
-            turnThree();
-
-        } else if(voiceCommand.toLowerCase().equals("back")){
-            turnFour();
+            }
 
         }
-
     }
 
     private void turnOne()
@@ -237,7 +244,68 @@ public class VoiceControlsActivity extends AppCompatActivity {
     }
 
 
+    private void turnFive() {
 
+        if(bluetoothSocket!=null){
+
+            try {
+                bluetoothData = "5";
+                bluetoothSocket.getOutputStream().write(bluetoothData.getBytes());
+
+            } catch (IOException e) {
+                miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+            }
+        }
+
+    }
+
+
+    private void turnSix() {
+
+        if(bluetoothSocket!=null){
+
+            try {
+                bluetoothData = "6";
+                bluetoothSocket.getOutputStream().write(bluetoothData.getBytes());
+
+            } catch (IOException e) {
+                miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+            }
+        }
+
+    }
+
+    private void turnSeven() {
+
+        if(bluetoothSocket!=null){
+
+            try {
+                bluetoothData = "7";
+                bluetoothSocket.getOutputStream().write(bluetoothData.getBytes());
+
+            } catch (IOException e) {
+                miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+            }
+        }
+
+    }
+
+
+
+    private void turnEight() {
+
+        if(bluetoothSocket!=null){
+
+            try {
+                bluetoothData = "8";
+                bluetoothSocket.getOutputStream().write(bluetoothData.getBytes());
+
+            } catch (IOException e) {
+                miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+            }
+        }
+
+    }
 
 
 
@@ -294,7 +362,7 @@ public class VoiceControlsActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute()
         {
-            progress = ProgressDialog.show(VoiceControlsActivity.this, "Connecting.......", "Please wait!");  //show a progress dialog
+            progress = ProgressDialog.show(ManualCartControlsActivity.this, "Connecting.......", "Please wait!");  //show a progress dialog
         }
 
         @Override
@@ -306,7 +374,7 @@ public class VoiceControlsActivity extends AppCompatActivity {
                     //check if bluetooth socket created and bluetooth should be connected if not
                     myBluetooth = BluetoothAdapter.getDefaultAdapter();//get the mobile bluetooth device
                     BluetoothDevice bluetoothDevice = myBluetooth.getRemoteDevice(address);//connects to the device's address and checks if it's available
-                    bluetoothSocket = bluetoothDevice.createInsecureRfcommSocketToServiceRecord(myUUID);//create a RFCOMM (SPP) connection
+                    bluetoothSocket = bluetoothDevice.createInsecureRfcommSocketToServiceRecord(myUUID);//create a RF COMM (SPP) connection
                     BluetoothAdapter.getDefaultAdapter().cancelDiscovery();
                     bluetoothSocket.connect();//start connection
                 }
@@ -332,4 +400,15 @@ public class VoiceControlsActivity extends AppCompatActivity {
             progress.dismiss();
         }
     }
+
+
+    private void openVoiceControl(){
+        disconnectAndGoToVoice();
+        Intent goToVoiceControl = new Intent(ManualCartControlsActivity.this, VoiceCartControlsActivity.class);
+        goToVoiceControl.putExtra(MANUAL_EXTRA_ADDRESS,address);
+        startActivity(goToVoiceControl);
+    }
+
+
+
 }
