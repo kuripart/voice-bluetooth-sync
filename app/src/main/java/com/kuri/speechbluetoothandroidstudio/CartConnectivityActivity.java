@@ -23,7 +23,6 @@ public class CartConnectivityActivity extends AppCompatActivity {
 
     //Bluetooth parameters
     private BluetoothAdapter myBluetooth = null;
-    private Set<BluetoothDevice> pairedDevices;
     public static String EXTRA_ADDRESS = "device_address"; // This will be accessed in another activity, hence Public
     Miscellaneous miscellaneousFunctions = new Miscellaneous();
 
@@ -66,7 +65,7 @@ public class CartConnectivityActivity extends AppCompatActivity {
 
 
     private void pairedDevicesList() {
-        pairedDevices = myBluetooth.getBondedDevices();
+        Set<BluetoothDevice> pairedDevices = myBluetooth.getBondedDevices();
         ArrayList list = new ArrayList();
 
         if (pairedDevices.size()>0) {
@@ -93,11 +92,11 @@ public class CartConnectivityActivity extends AppCompatActivity {
             String address = info.substring(info.length() - 17);
 
             // Make an intent to start next activity.
-            Intent i = new Intent(CartConnectivityActivity.this, ManualCartControlsActivity.class);
+            Intent goToCartControlPage = new Intent(CartConnectivityActivity.this, ManualCartControlsActivity.class);
 
             //Change the activity.
-            i.putExtra(EXTRA_ADDRESS, address);
-            startActivity(i);
+            goToCartControlPage.putExtra(EXTRA_ADDRESS, address);
+            startActivity(goToCartControlPage);
         }
     };
 }

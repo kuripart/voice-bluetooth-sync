@@ -158,13 +158,8 @@ public class VoiceArmControlsActivity extends AppCompatActivity {
 
 
     private void executeCommand(String voiceCommand){
-        if(voiceCommand.toLowerCase().equals("right")){
-            turnOne();
 
-        } else if(voiceCommand.toLowerCase().equals("left")){
-            turnTwo();
-
-        } else if(voiceCommand.toLowerCase().equals("front")){
+        if(voiceCommand.toLowerCase().equals("rotate")){
             turnThree();
 
         } else if(voiceCommand.toLowerCase().equals("back")){

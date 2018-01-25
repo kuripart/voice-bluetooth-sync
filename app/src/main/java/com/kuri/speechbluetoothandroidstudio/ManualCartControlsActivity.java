@@ -75,7 +75,7 @@ public class ManualCartControlsActivity extends AppCompatActivity {
             }
         });
 
-        sig_2.setOnClickListener(new View.OnClickListener() {
+        sig_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
@@ -160,6 +160,7 @@ public class ManualCartControlsActivity extends AppCompatActivity {
 
             } catch (IOException e) {
                 miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+                e.printStackTrace();
 
             }
 
@@ -177,6 +178,7 @@ public class ManualCartControlsActivity extends AppCompatActivity {
 
             } catch (IOException e) {
                 miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+                e.printStackTrace();
 
             }
 
@@ -193,6 +195,7 @@ public class ManualCartControlsActivity extends AppCompatActivity {
 
             } catch (IOException e) {
                 miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+                e.printStackTrace();
             }
         }
     }
@@ -206,6 +209,7 @@ public class ManualCartControlsActivity extends AppCompatActivity {
 
             } catch (IOException e) {
                 miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+                e.printStackTrace();
             }
         }
     }
@@ -221,6 +225,7 @@ public class ManualCartControlsActivity extends AppCompatActivity {
 
             } catch (IOException e) {
                 miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+                e.printStackTrace();
             }
         }
 
@@ -238,6 +243,7 @@ public class ManualCartControlsActivity extends AppCompatActivity {
 
             } catch (IOException e) {
                 miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+                e.printStackTrace();
             }
         }
 
@@ -254,6 +260,7 @@ public class ManualCartControlsActivity extends AppCompatActivity {
 
             } catch (IOException e) {
                 miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+                e.printStackTrace();
             }
         }
 
@@ -270,6 +277,7 @@ public class ManualCartControlsActivity extends AppCompatActivity {
 
             } catch (IOException e) {
                 miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+                e.printStackTrace();
             }
         }
 
@@ -362,7 +370,7 @@ public class ManualCartControlsActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute()
         {
-            progress = ProgressDialog.show(ManualCartControlsActivity.this, "Connecting.......", "Please wait!");  //show a progress dialog
+            progress = ProgressDialog.show(ManualCartControlsActivity.this, "Connecting to device", "Please wait!");  //show a progress dialog
         }
 
         @Override
@@ -379,6 +387,7 @@ public class ManualCartControlsActivity extends AppCompatActivity {
                     bluetoothSocket.connect();//start connection
                 }
             } catch (IOException e) {
+                e.printStackTrace();
                 ConnectSuccess = false;//if the try failed, you can check the exception here
             }
 

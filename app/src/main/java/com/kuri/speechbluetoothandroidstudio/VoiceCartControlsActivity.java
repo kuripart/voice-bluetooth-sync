@@ -144,17 +144,12 @@ public class VoiceCartControlsActivity extends AppCompatActivity {
     }
 
     private void executeCommand(String voiceCommand){
-        if(voiceCommand.toLowerCase().equals("right")){
-            turnOne();
 
-        } else if(voiceCommand.toLowerCase().equals("left")){
-            turnTwo();
-
-        } else if(voiceCommand.toLowerCase().equals("front")){
-            turnThree();
+        if(voiceCommand.toLowerCase().equals("forward")){
+            turnFive();
 
         } else if(voiceCommand.toLowerCase().equals("back")){
-            turnFour();
+            turnSix();
 
         }
 
@@ -211,6 +206,37 @@ public class VoiceCartControlsActivity extends AppCompatActivity {
 
             try {
                 bluetoothData = "4";
+                bluetoothSocket.getOutputStream().write(bluetoothData.getBytes());
+
+            } catch (IOException e) {
+                miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+            }
+        }
+
+    }
+
+
+    private void turnFive() {
+
+        if(bluetoothSocket!=null){
+
+            try {
+                bluetoothData = "5";
+                bluetoothSocket.getOutputStream().write(bluetoothData.getBytes());
+
+            } catch (IOException e) {
+                miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+            }
+        }
+
+    }
+
+    private void turnSix() {
+
+        if(bluetoothSocket!=null){
+
+            try {
+                bluetoothData = "6";
                 bluetoothSocket.getOutputStream().write(bluetoothData.getBytes());
 
             } catch (IOException e) {

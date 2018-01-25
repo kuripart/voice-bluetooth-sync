@@ -25,7 +25,7 @@ public class ManualArmControlsActivity extends AppCompatActivity {
     BluetoothSocket bluetoothSocket = null;
     private boolean isBtConnected = false;
     String bluetoothData;
-    static final UUID myUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"); //SPP UUID. Look for it
+    static final UUID myUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"); //Look for: SPP UUID
     Miscellaneous miscellaneousDoings = new Miscellaneous();
 
     public static String MANUAL_EXTRA_ADDRESS = "device_address_manual";
@@ -159,6 +159,7 @@ public class ManualArmControlsActivity extends AppCompatActivity {
 
             } catch (IOException e) {
                 miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+                e.printStackTrace();
 
             }
 
@@ -176,6 +177,7 @@ public class ManualArmControlsActivity extends AppCompatActivity {
 
             } catch (IOException e) {
                 miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+                e.printStackTrace();
 
             }
 
@@ -192,6 +194,7 @@ public class ManualArmControlsActivity extends AppCompatActivity {
 
             } catch (IOException e) {
                 miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+                e.printStackTrace();
             }
         }
     }
@@ -205,6 +208,7 @@ public class ManualArmControlsActivity extends AppCompatActivity {
 
             } catch (IOException e) {
                 miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+                e.printStackTrace();
             }
         }
     }
@@ -220,6 +224,7 @@ public class ManualArmControlsActivity extends AppCompatActivity {
 
             } catch (IOException e) {
                 miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+                e.printStackTrace();
             }
         }
 
@@ -237,6 +242,7 @@ public class ManualArmControlsActivity extends AppCompatActivity {
 
             } catch (IOException e) {
                 miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+                e.printStackTrace();
             }
         }
 
@@ -253,6 +259,7 @@ public class ManualArmControlsActivity extends AppCompatActivity {
 
             } catch (IOException e) {
                 miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+                e.printStackTrace();
             }
         }
 
@@ -269,6 +276,7 @@ public class ManualArmControlsActivity extends AppCompatActivity {
 
             } catch (IOException e) {
                 miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+                e.printStackTrace();
             }
         }
 
@@ -284,6 +292,7 @@ public class ManualArmControlsActivity extends AppCompatActivity {
 
             } catch (IOException e) {
                 miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+                e.printStackTrace();
             }
         }
 
@@ -301,6 +310,7 @@ public class ManualArmControlsActivity extends AppCompatActivity {
 
             } catch (IOException e) {
                 miscellaneousDoings.displayErrorToast("Error", getApplicationContext());
+                e.printStackTrace();
             }
         }
 
@@ -361,7 +371,7 @@ public class ManualArmControlsActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute()
         {
-            progress = ProgressDialog.show(ManualArmControlsActivity.this, "Connecting.......", "Please wait!");  //show a progress dialog
+            progress = ProgressDialog.show(ManualArmControlsActivity.this, "Connecting to device", "Please wait!");  //show a progress dialog
         }
 
         @Override
@@ -378,6 +388,7 @@ public class ManualArmControlsActivity extends AppCompatActivity {
                     bluetoothSocket.connect();//start connection
                 }
             } catch (IOException e) {
+                e.printStackTrace();
                 ConnectSuccess = false;//if the try failed, you can check the exception here
             }
 

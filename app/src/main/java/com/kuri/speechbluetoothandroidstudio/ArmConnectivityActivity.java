@@ -22,7 +22,6 @@ public class ArmConnectivityActivity extends AppCompatActivity {
 
     //Bluetooth parameters
     private BluetoothAdapter myBluetooth = null;
-    private Set<BluetoothDevice> pairedDevices;
     public static String EXTRA_ADDRESS = "device_address"; // This will be accessed in another activity, hence Public
     Miscellaneous miscellaneousFunctions = new Miscellaneous();
 
@@ -65,7 +64,7 @@ public class ArmConnectivityActivity extends AppCompatActivity {
     }
 
     private void pairedDevicesList() {
-        pairedDevices = myBluetooth.getBondedDevices();
+        Set<BluetoothDevice> pairedDevices = myBluetooth.getBondedDevices();
         ArrayList list = new ArrayList();
 
         if (pairedDevices.size()>0) {
@@ -92,11 +91,11 @@ public class ArmConnectivityActivity extends AppCompatActivity {
             String address = info.substring(info.length() - 17);
 
             // Make an intent to start next activity.
-            Intent i = new Intent(ArmConnectivityActivity.this, ManualArmControlsActivity.class);
+            Intent goToArmControlPage = new Intent(ArmConnectivityActivity.this, ManualArmControlsActivity.class);
 
-            //Change the activity.
-            i.putExtra(EXTRA_ADDRESS, address);
-            startActivity(i);
+            //Add additional information regarding the bluetooth address
+            goToArmControlPage.putExtra(EXTRA_ADDRESS, address);
+            startActivity(goToArmControlPage);
         }
     };
 }
