@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Android-App---Voice-Bluetooth-Sync.iml" filepath="$PROJECT_DIR$/.idea/modules/Android-App---Voice-Bluetooth-Sync.iml" group="Android-App---Voice-Bluetooth-Sync" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Android-App---Voice-Bluetooth-Sync-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Android-App---Voice-Bluetooth-Sync-app.iml" group="Android-App---Voice-Bluetooth-Sync/app" />
       <module fileurl="file://$PROJECT_DIR$/SpeechBluetoothAndroidStudio.iml" filepath="$PROJECT_DIR$/SpeechBluetoothAndroidStudio.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
